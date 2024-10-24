@@ -1,0 +1,5 @@
+package com.feignclient.quation.globalexceptionhandle;
+
+public class GlobalExceptionHandle {
+
+}

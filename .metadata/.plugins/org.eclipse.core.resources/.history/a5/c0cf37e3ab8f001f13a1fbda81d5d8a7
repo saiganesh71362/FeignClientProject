@@ -1,0 +1,10 @@
+package com.feignclient.sample.entity;
+
+public class Quations {
+	
+	private Long quationId;
+	private String quationName;
+	private Quiz quizId;
+
+
+}

@@ -1,0 +1,48 @@
+package com.feignclient.sample.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.feignclient.sample.entity.Quiz;
+import com.feignclient.sample.serviceimpl.QuizServiceImpl;
+
+
+@RestController
+@RequestMapping("/quiz")
+public class QuizController {
+
+	@Autowired
+	QuizServiceImpl quizServiceImpl;
+
+	@GetMapping("/getAllQuizTitles")
+	public ResponseEntity<List<Quiz>> getAllQuizTitle() {
+		List<Quiz> allQuizTitle = quizServiceImpl.getAllQuizTitle();
+		return new ResponseEntity<List<Quiz>>(allQuizTitle, HttpStatus.OK);
+	}
+
+	@GetMapping("/getQuizById/{quizId}")
+	public ResponseEntity<Quiz> getQuizById(@PathVariable Long quizId) throws Exception {
+		Quiz quizById = quizServiceImpl.getQuizById(quizId);
+		return new ResponseEntity<Quiz>(quizById, HttpStatus.OK);
+	}
+	
+	@PostMapping("/newQuizTitleAdd")
+	public ResponseEntity<Quiz> saveQuizTitle(@RequestBody Quiz quiz)
+	{
+		Quiz saveQuizTitle = quizServiceImpl.saveQuizTitle(quiz);
+		return new ResponseEntity<Quiz>(saveQuizTitle, HttpStatus.CREATED);
+	}
+	
+	
+	
+
+}

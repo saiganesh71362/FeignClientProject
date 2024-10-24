@@ -1,0 +1,75 @@
+package com.feignclient.quiz.serviceimpl;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+import com.feignclient.quiz.appconstants.AppConstants;
+import com.feignclient.quiz.entity.Quiz;
+import com.feignclient.quiz.globalexceptionhandle.IdNotFoundException;
+import com.feignclient.quiz.repository.QuizRepository;
+import com.feignclient.quiz.service.QuationClient;
+import com.feignclient.quiz.service.QuizService;
+
+@Service
+public class QuizServiceImpl implements QuizService {
+	
+	private static final Logger logger = LogManager.getLogger(QuizServiceImpl.class);
+
+	private QuizRepository quizRepository;
+
+	private QuationClient quationClient;
+
+	public QuizServiceImpl(QuizRepository quizRepository, QuationClient quationClient) {
+		super();
+		this.quizRepository = quizRepository;
+		this.quationClient = quationClient;
+	}
+
+	@Override
+	public List<Quiz> getAllQuizTitle() {
+		
+
+		List<Quiz> all = quizRepository.findAll();
+
+		List<Quiz> collect = all.stream().map(quiz -> {
+			quiz.setQuations(quationClient.getQutionsByQuizId(quiz.getQuizId()));
+			return quiz;
+		}).collect(Collectors.toList());
+		
+		return collect;
+	}
+
+	@Override
+	public Quiz getQuizById(Long quizId) throws IdNotFoundException {
+		Quiz orElseThrow = quizRepository.findById(quizId)
+				.orElseThrow(() -> new IdNotFoundException(AppConstants.ID_NOT_FOUND + quizId));
+
+		orElseThrow.setQuations(quationClient.getQutionsByQuizId(quizId));
+		return orElseThrow;
+	}
+
+	@Override
+	public Quiz saveQuizTitle(Quiz quiz) {
+
+		Quiz save = quizRepository.save(quiz);
+		return save;
+	}
+
+	@Override
+	public Boolean deleteQuizTitle(Long quizId) throws IdNotFoundException {
+
+		Optional<Quiz> byId = quizRepository.findById(quizId);
+		if (byId.isPresent()) {
+			quizRepository.deleteById(quizId);
+			return true;
+		} else {
+			throw new IdNotFoundException(AppConstants.ID_NOT_FOUND + quizId);
+		}
+	}
+
+}

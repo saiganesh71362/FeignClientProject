@@ -1,0 +1,13 @@
+package com.feignclient.sample.service;
+
+import java.util.List;
+
+import com.feignclient.sample.entity.Quiz;
+
+public interface QuizService {
+
+	public List<Quiz> getAllQuizTitle();
+
+	public Quiz getQuizById(Long quizId);
+
+}

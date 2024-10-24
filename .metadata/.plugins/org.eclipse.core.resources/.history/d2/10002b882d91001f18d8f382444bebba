@@ -1,0 +1,5 @@
+package com.feignclient.quation.appconstants;
+
+public class AppConstants {
+
+}

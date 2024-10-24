@@ -1,0 +1,25 @@
+package com.feignclient.sample.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.feignclient.sample.entity.Quiz;
+import com.feignclient.sample.serviceimpl.QuizServiceImpl;
+
+@RestController
+public class QuizController {
+	
+	@Autowired
+	QuizServiceImpl quizServiceImpl;
+	
+	public ResponseEntity<List<Quiz>> getAllQuizTitle()
+	{
+		List<Quiz> allQuizTitle = quizServiceImpl.getAllQuizTitle();
+		return new ResponseEntity<List<Quiz>>(allQuizTitle, HttpStatus.OK);
+	}
+
+}

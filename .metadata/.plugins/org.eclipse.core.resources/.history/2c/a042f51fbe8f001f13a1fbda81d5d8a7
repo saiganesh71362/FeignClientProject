@@ -1,0 +1,17 @@
+package com.feignclient.sample.service;
+
+import java.util.List;
+
+import com.feignclient.sample.entity.Quations;
+
+public interface QuationService {
+
+	List<Quations> getAllQuations();
+
+	Quations getQuationById(Long quationId) throws Exception;
+
+	Quations saveNewQuation(Quations quations);
+
+	Quations getQutionsByQuizId(Long quizId);
+
+}

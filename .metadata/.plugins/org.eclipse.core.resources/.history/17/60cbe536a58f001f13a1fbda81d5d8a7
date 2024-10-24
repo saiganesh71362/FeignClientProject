@@ -1,0 +1,17 @@
+package com.feignclient.sample.swagger;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SwaggerConfiguration {
+	
+	@Bean
+	public GroupedOpenApi controllerApi()
+	{
+	        return GroupedOpenApi.builder()
+	                .group("CollegeManagement")
+	                .packagesToScan("com.feignclient.sample.controller") // Specify the package to scan
+	                .build();
+	 }
+
+}

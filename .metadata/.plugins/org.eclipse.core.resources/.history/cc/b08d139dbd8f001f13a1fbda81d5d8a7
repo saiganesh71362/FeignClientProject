@@ -1,0 +1,41 @@
+package com.feignclient.sample.serviceimpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.feignclient.sample.entity.Quations;
+import com.feignclient.sample.repository.QuationRepository;
+import com.feignclient.sample.service.QuationService;
+
+public class QuationServiceImpl implements QuationService {
+
+	@Autowired
+	QuationRepository quationRepository;
+	@Override
+	public List<Quations> getAllQuations()
+	{
+		List<Quations> all = quationRepository.findAll();
+		return all;
+	}
+
+	@Override
+	public Quations getQuationById(Long quationId) {
+		
+		quationRepository.findById(quationId).orElseThrow( ()-> new Exception("Id Not Found :"+quationId))
+		return null;
+	}
+
+	@Override
+	public Quations saveNewQuation(Quations quations) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Quations getQutionsByQuizId(Long quizId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

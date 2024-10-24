@@ -1,0 +1,6 @@
+package com.feignclient.sample.entity;
+
+
+public class Quiz {
+
+}

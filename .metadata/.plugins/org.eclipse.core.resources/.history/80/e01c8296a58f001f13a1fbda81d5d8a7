@@ -1,0 +1,12 @@
+package com.feignclient.sample.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.feignclient.sample.serviceimpl.QuizServiceImpl;
+
+@RestController
+public class QuizController {
+	
+	QuizServiceImpl quizServiceImpl;
+
+}

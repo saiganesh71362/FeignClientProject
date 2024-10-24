@@ -1,0 +1,5 @@
+package com.feignclient.sample.controller;
+
+public class QuizController {
+
+}

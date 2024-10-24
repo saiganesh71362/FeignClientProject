@@ -1,0 +1,7 @@
+package com.feignclient.sample.service;
+
+public interface QuationService {
+	
+	List<Quations> getAllQuations();
+
+}

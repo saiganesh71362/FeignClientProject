@@ -1,0 +1,51 @@
+package com.feignclient.quation.serviceimpl;
+
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.feignclient.quation.appconstants.AppConstants;
+import com.feignclient.quation.entity.Quations;
+import com.feignclient.quation.globalexceptionhandle.IdNotFoundException;
+import com.feignclient.quation.repository.QuationRepository;
+import com.feignclient.quation.service.QuationService;
+
+@Service
+public class QuationServiceImpl implements QuationService {
+
+	private static final Logger logger = LogManager.getLogger();
+
+	@Autowired
+	QuationRepository quationRepository;
+
+	@Override
+	public List<Quations> getAllQuations() {
+		logger.info("Fetching All Quations");
+		List<Quations> all = quationRepository.findAll();
+		return all;
+	}
+
+	@Override
+	public Quations getQuationById(Long quationId) throws IdNotFoundException {
+
+		Quations orElseThrow = quationRepository.findById(quationId)
+				.orElseThrow(() -> new IdNotFoundException(AppConstants.ID_NOT_FOUND + quationId));
+		return orElseThrow;
+	}
+
+	@Override
+	public Quations saveNewQuation(Quations quations) {
+		Quations save = quationRepository.save(quations);
+		return save;
+	}
+
+	@Override
+	public List<Quations> getQutionsByQuizId(Long quizId) {
+		List<Quations> byQuizId = quationRepository.findByQuizId(quizId);
+		return byQuizId;
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.feignclient.sample.entity;
+
+import java.util.List;
+
+public class Quiz {
+	
+	private Long quizId;
+	private String quizTitle;
+	transient List<Quations> quations;
+
+}

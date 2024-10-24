@@ -1,0 +1,5 @@
+package com.feignclient.quiz.globalexceptionhandle;
+
+public class ExceptionMessage {
+
+}

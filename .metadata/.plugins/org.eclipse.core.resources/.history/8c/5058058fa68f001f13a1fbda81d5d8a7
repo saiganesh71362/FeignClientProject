@@ -1,0 +1,8 @@
+spring.application.name=Quiz
+spring.server=7111
+spring.datasource.username=root
+spring.datasource.password=pganesh
+spring.datasource.url=jdbc:mysql://localhost:3306/mobilemanagement
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true

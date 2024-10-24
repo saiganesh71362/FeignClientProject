@@ -1,0 +1,10 @@
+package com.feignclient.sample.service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(url = "http://localhost:7112",value = "Quations")
+public interface QuationClient {
+	
+//	/quation/getQuationByQuizId/2
+
+}

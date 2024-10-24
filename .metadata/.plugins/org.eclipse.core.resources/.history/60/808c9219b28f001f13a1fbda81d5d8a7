@@ -1,0 +1,11 @@
+package com.feignclient.sample.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.feignclient.sample.entity.Quations;
+
+public interface QuationRepository extends JpaRepository<Quations, Long> {
+	
+	findByQuizId(Long quizId);
+
+}

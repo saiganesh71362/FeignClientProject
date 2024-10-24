@@ -1,0 +1,5 @@
+package com.feignclient.sample.repository;
+
+public interface QuationRepository {
+
+}

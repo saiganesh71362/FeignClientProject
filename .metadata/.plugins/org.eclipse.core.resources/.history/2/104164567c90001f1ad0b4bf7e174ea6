@@ -1,0 +1,66 @@
+package com.feignclient.sample.serviceimpl;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import com.feignclient.sample.entity.Quiz;
+import com.feignclient.sample.repository.QuizRepository;
+import com.feignclient.sample.service.QuationClient;
+import com.feignclient.sample.service.QuizService;
+
+@Service
+public class QuizServiceImpl implements QuizService {
+
+	QuizRepository quizRepository;
+
+	QuationClient quationClient;
+
+	public QuizServiceImpl(QuizRepository quizRepository, QuationClient quationClient) {
+		super();
+		this.quizRepository = quizRepository;
+		this.quationClient = quationClient;
+	}
+
+	@Override
+	public List<Quiz> getAllQuizTitle() {
+
+		List<Quiz> all = quizRepository.findAll();
+
+		List<Quiz> collect = all.stream().map(quiz -> {
+			quiz.setQuations(quationClient.getQutionsByQuizId(quiz.getQuizId()));
+			return quiz;
+		}).collect(Collectors.toList());
+		return collect;
+	}
+
+	@Override
+	public Quiz getQuizById(Long quizId) throws Exception {
+		Quiz orElseThrow = quizRepository.findById(quizId).orElseThrow(() -> new Exception("Id Not Found :" + quizId));
+
+		orElseThrow.setQuations(quationClient.getQutionsByQuizId(quizId));
+		return orElseThrow;
+	}
+
+	@Override
+	public Quiz saveQuizTitle(Quiz quiz) {
+
+		Quiz save = quizRepository.save(quiz);
+		return save;
+	}
+
+	@Override
+	public Boolean deleteQuizTitle(Long quizId) throws Exception {
+
+		Optional<Quiz> byId = quizRepository.findById(quizId);
+		if (byId.isPresent()) {
+			quizRepository.deleteById(quizId);
+			return true;
+		} else {
+			throw new Exception("Id Not Found :" + quizId);
+		}
+	}
+
+}

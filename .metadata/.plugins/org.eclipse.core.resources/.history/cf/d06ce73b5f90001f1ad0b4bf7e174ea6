@@ -1,0 +1,20 @@
+package com.feignclient.sample.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Quations {
+
+	@Id
+	private Long quationId;
+	private String quationName;
+	private Long quizId;
+
+}

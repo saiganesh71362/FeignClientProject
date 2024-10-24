@@ -1,0 +1,14 @@
+package com.feignclient.sample.entity;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Quiz {
+
+	private Long quizId;
+	private String quizName;
+	List<Quations> quations;
+
+}

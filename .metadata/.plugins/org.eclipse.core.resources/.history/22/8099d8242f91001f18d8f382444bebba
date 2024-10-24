@@ -1,0 +1,11 @@
+package com.feignclient.quation.globalexceptionhandle;
+
+import java.util.Date;
+
+public class ExceptionMessage {
+	
+	private String message;
+	private String description;
+	private Date date;
+
+}

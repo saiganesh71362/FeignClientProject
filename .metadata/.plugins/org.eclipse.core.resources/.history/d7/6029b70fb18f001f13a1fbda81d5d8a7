@@ -1,0 +1,12 @@
+package com.feignclient.sample.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Quations {
+
+	private Long quationId;
+	private String quationName;
+	private Long quizId;
+
+}

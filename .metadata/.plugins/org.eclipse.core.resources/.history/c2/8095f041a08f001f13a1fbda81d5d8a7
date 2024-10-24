@@ -1,0 +1,16 @@
+package com.feignclient.sample.entity;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+@Entity
+@Data
+public class Quiz {
+
+	private Long quizId;
+	private String quizName;
+	List<Quations> quations;
+
+}

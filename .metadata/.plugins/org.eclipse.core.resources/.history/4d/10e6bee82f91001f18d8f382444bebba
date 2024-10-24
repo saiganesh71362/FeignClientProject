@@ -1,0 +1,17 @@
+package com.feignclient.quation.globalexceptionhandle;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class GlobalExceptionHandle {
+	
+	
+	@ExceptionHandler(IdNotFoundException.class)
+	public ResponseEntity<ExceptionMessage> handleIdNotFoundException()
+	{
+		
+	}
+
+}

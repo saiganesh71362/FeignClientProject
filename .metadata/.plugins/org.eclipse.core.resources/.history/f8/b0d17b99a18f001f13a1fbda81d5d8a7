@@ -1,0 +1,5 @@
+package com.feignclient.sample.service;
+
+public interface QuizService {
+
+}

@@ -1,0 +1,7 @@
+package com.feignclient.sample.service;
+
+public interface QuizService {
+	
+	public List<Quiz> getAllQuizTitle();
+
+}
