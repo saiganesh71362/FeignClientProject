@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="QuizControllerMvcTest" project="Quiz" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="com.feignclient.sample.QuizControllerMvcTest" time="0.683" displayname="QuizControllerMvcTest" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]">
+    <testcase name="saveQuizTitle" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.613" displayname="saveQuizTitle()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:saveQuizTitle()]"/>
+    <testcase name="getAllQuizTitle" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.028" displayname="getAllQuizTitle()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:getAllQuizTitle()]"/>
+    <testcase name="getQuizById" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.032" displayname="getQuizById()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:getQuizById()]"/>
+  </testsuite>
+</testrun>

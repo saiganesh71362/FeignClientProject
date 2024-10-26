@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="QuizControllerMvcTest" project="Quiz" tests="3" started="3" failures="1" errors="0" ignored="0">
+  <testsuite name="com.feignclient.sample.QuizControllerMvcTest" time="0.438" displayname="QuizControllerMvcTest" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]">
+    <testcase name="saveQuizTitle" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.376" displayname="saveQuizTitle()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:saveQuizTitle()]">
+      <failure>java.lang.AssertionError: JSON path "$.quations[1].quationName" expected:&lt;Explain Briefly Multithreading Concept&gt; but was:&lt;Explain Breafly Multitreadding Concept&gt;&#13;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)&#13;
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)&#13;
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:123)&#13;
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$2(JsonPathResultMatchers.java:111)&#13;
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)&#13;
+	at com.feignclient.sample.QuizControllerMvcTest.saveQuizTitle(QuizControllerMvcTest.java:148)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="getAllQuizTitle" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.028" displayname="getAllQuizTitle()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:getAllQuizTitle()]"/>
+    <testcase name="getQuizById" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.026" displayname="getQuizById()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:getQuizById()]"/>
+  </testsuite>
+</testrun>

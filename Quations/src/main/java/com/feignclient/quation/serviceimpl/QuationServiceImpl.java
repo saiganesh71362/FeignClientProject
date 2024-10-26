@@ -16,7 +16,7 @@ import com.feignclient.quation.service.QuationService;
 @Service
 public class QuationServiceImpl implements QuationService {
 
-	private static final Logger logger = LogManager.getLogger();
+	private static final Logger logger = LogManager.getLogger(QuationServiceImpl.class);
 
 	@Autowired
 	QuationRepository quationRepository;

@@ -1,0 +1,84 @@
+package com.feignclient.sample;
+
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import com.feignclient.quiz.controller.QuizController;
+import com.feignclient.quiz.entity.Quations;
+import com.feignclient.quiz.entity.Quiz;
+import com.feignclient.quiz.serviceimpl.QuizServiceImpl;
+
+@AutoConfigureOrder
+@ComponentScan("com.feignclient.quiz")
+@SpringBootTest(classes = { QuizControllerMvcTest.class })
+@ContextConfiguration
+class QuizControllerMvcTest {
+
+	@Autowired
+	MockMvc mockMvc;
+	
+	@Mock
+	QuizServiceImpl quizServiceImpl;
+
+	@InjectMocks
+	QuizController quizController;
+
+	@BeforeEach
+	void setUp() {
+		mockMvc = MockMvcBuilders.standaloneSetup(quizController).build();
+	}
+
+	@Test
+	@Order(1)
+	void getAllQuizTitle() throws Exception {
+
+		List<Quiz> quizList = new ArrayList<>();
+
+		Quiz quiz = new Quiz();
+		quiz.setQuizId(1l);
+		quiz.setQuizTitle("Java-Quiz");
+
+		List<Quations> listOfQuations = new ArrayList<Quations>();
+
+		Quations quation1 = new Quations();
+		quation1.setQuationId(1l);
+		quation1.setQuationName("Explain Java-8 Features");
+		quation1.setQuizId(1l);
+
+		Quations quation2 = new Quations();
+		quation2.setQuationId(2l);
+		quation2.setQuationName("Explain Breafly Multitreadding Concept");
+		quation2.setQuizId(1l);
+		listOfQuations.add(quation1);
+		listOfQuations.add(quation2);
+
+		quiz.setQuations(listOfQuations);
+
+		quizList.add(quiz);
+
+		when(quizServiceImpl.getAllQuizTitle()).thenReturn(quizList);
+
+		this.mockMvc.perform(get("/quiz/getAllQuizTitles"))
+		.andExpect(status().isOk())
+		.andDo(print());
+	}
+
+}

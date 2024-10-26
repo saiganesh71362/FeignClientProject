@@ -1,0 +1,37 @@
+package com.feignclient.sample;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import com.feignclient.quiz.controller.QuizController;
+import com.feignclient.quiz.serviceimpl.QuizServiceImpl;
+
+@AutoConfigureOrder
+@ComponentScan("com.feignclient.quiz")
+@SpringBootTest(classes = { QuizControllerMvcTest.class })
+@ContextConfiguration
+class QuizControllerMvcTest {
+
+	@Autowired
+	MockMvc mockMvc;
+	@Mock
+	QuizServiceImpl quizServiceImpl;
+
+	@InjectMocks
+	QuizController quizController;
+	
+	@BeforeEach
+	void setUp()
+	{
+		mockMvc = MockMvcBuilders.standaloneSetup(quizController).build();
+	}
+
+}

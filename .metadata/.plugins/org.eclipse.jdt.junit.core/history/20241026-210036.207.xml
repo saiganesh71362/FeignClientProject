@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="QuizControllerMvcTest" project="Quiz" tests="4" started="4" failures="1" errors="0" ignored="0">
+  <testsuite name="com.feignclient.sample.QuizControllerMvcTest" time="0.598" displayname="QuizControllerMvcTest" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]">
+    <testcase name="deleteQuizTitle" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.234" displayname="deleteQuizTitle()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:deleteQuizTitle()]">
+      <failure>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;404&gt;&#13;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)&#13;
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)&#13;
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)&#13;
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)&#13;
+	at com.feignclient.sample.QuizControllerMvcTest.deleteQuizTitle(QuizControllerMvcTest.java:180)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="saveQuizTitle" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.282" displayname="saveQuizTitle()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:saveQuizTitle()]"/>
+    <testcase name="getAllQuizTitle" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.033" displayname="getAllQuizTitle()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:getAllQuizTitle()]"/>
+    <testcase name="getQuizById" classname="com.feignclient.sample.QuizControllerMvcTest" time="0.029" displayname="getQuizById()" uniqueid="[engine:junit-jupiter]/[class:com.feignclient.sample.QuizControllerMvcTest]/[method:getQuizById()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,19 @@
+package com.feignclient.sample;
+
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+
+@AutoConfigureOrder
+@ComponentScan("com.feignclient.quiz")
+@SpringBootTest(classes = {QuizControllerMvcTest.class})
+@ContextConfiguration
+class QuizControllerMvcTest {
+	
+	MockMvc mockMvc;
+	
+	
+
+}
